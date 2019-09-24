@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class hello{
 	public static void main(String[] args){
@@ -11,5 +12,8 @@ public class hello{
 		System.out.println(
 			((radius % 2 == 0) ? radius + " is even" : radius + " is odd")
 		);
+		Scanner console = new Scanner(System.in);
+		String input = console.nextln();
+		System.out.println(input + " <- is what you said");
 	}
 }
