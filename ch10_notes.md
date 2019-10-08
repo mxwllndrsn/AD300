@@ -24,4 +24,4 @@ import java.util.*;
 
 #### Array list is a dynamically sized array object
 
-
+Standard arrays are declared with an explicit size.
