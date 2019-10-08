@@ -28,9 +28,9 @@ public class al{
 		for(int i = test.size()-1; i>=0; i--)
 			System.out.print(test.get(i)+ ", ");
 */
-
 		ArrayList<String> example = new ArrayList<>(
 			List.of("asdf", "qwer", ";lkj", "opiu"));
 		System.out.println(example);
+
 	}
 }
