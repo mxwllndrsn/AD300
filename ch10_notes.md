@@ -26,4 +26,16 @@ import java.util.*;
 
 Standard arrays are declared with an explicit size.
 
+#### Dynamic conditions
+
+```java
+//condition changes w/ operation
+for(int i = 0; i<list.size(); i++){
+	list.remove(i);
+}
+//as items removed, list.size() reduces, i increments
+//resulting in removal of every other element
+```
+
+
 

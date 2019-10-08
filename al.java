@@ -27,10 +27,17 @@ public class al{
 		System.out.println("we're printing the list backwards: \n");
 		for(int i = test.size()-1; i>=0; i--)
 			System.out.print(test.get(i)+ ", ");
-*/
+
 		ArrayList<String> example = new ArrayList<>(
 			List.of("asdf", "qwer", ";lkj", "opiu"));
 		System.out.println(example);
+*/
 
+	ArrayList<Integer> list = new ArrayList<>();
+	for(int i=0;i<100;i++)
+		list.add(i*10);
+	for(int i=0; i<list.size(); i++)
+		list.remove(i);
+	System.out.println(list);
 	}
 }
