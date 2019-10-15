@@ -76,3 +76,49 @@ Set<Integer> set = new TreeSet<Integer>();
 //empty
 Set<String> set2 = new HashSet<String>(list);
 ```
+
+*See in class exercises.*
+
+Maps
+=======
+
+*A dictionary.*
+
+"Marty"->(phoneMAP)->"206-234-9873"
+KEY			VALUE
+
+Each key is associated with one value, however multiple keys may point to the same value. 
+
+*AKA associative array, hash*
+
+```java
+put(key, value)
+// adds a mapping from key to value
+get(key)
+// returns value associated w/ key
+```
+
+#### Maps implemented by HashMap and TreeMap classes
+
+  - HashMap implemented by an array called a hash table
+  - TreeMap implemented as a linked binary tree structure
+    - keys stored in sorted order
+
+```java
+// declaration requires two types (key, value)
+Map<String, Integer> votes = new HashMap<String, Integer>();
+```
+```java
+// declare new map
+Map<String, Integer> ages = new TreeMap<String, Integer>();
+
+ages.put("Marty", 19);
+ages.put("Geneva", 2);
+ages.put("Vicki", 57);
+
+// return set of all keys as a set using .keySet()
+for (String name : ages.keySet()){
+	int age = ages.get(name);
+	System.out.println(name + " -> " + age);
+}
+```
