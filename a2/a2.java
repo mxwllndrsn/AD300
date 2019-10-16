@@ -22,6 +22,7 @@ public class a2{
     
     public static String state_capitals = "state_capitals.csv";
     
+    @SuppressWarnings("unchecked")  
     public static void main(String[] args)
         throws FileNotFoundException {
             
@@ -47,5 +48,11 @@ public class a2{
             // print state/capital pairs (as individual arrays)
             for(int i=0; i<pairs.length; i++)
                 System.out.println(Arrays.toString(pairs[i]));
+    
+            // testing hashmap 
+            HashMap hashPairs = new HashMap();
+            hashPairs.put(pairs[0][0], pairs[0][1]);
+            System.out.println(hashPairs);
+            System.out.println(hashPairs.get("Alabama"));
     }
 }
