@@ -13,8 +13,8 @@ public class dirSize{
 
 			System.out.println("\n"+directory.getName()+" size\n============");
 			System.out.println(size+" B");
-			System.out.println(size/1024+" MB");
-			System.out.println(size/1024/1024+ "GB");
+			System.out.println(size/1000024+" MB");
+			System.out.println(size/1000024/1024+ "GB");
 	}
 	public static long getSize(File file){
 		long size=0;
