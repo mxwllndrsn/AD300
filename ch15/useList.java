@@ -3,15 +3,29 @@ import java.util.*;
 public class useList{
 
 	public static void main(String[] args){
-		ArrayIntList newList = new ArrayIntList();
-		int size=Integer.parseInt(args[0]);
-		if(size>10){
-			System.out.println("\n error: size must be less than or equal to 10");
+		ArrayIntList newList;
+		if(args.length>0){
+			newList = new ArrayIntList(Integer.parseInt(args[0]));
 		} else {
-			for(int i=0; i<size; i++){
-				newList.add(i);
-			}
-			System.out.println("\n"+newList);
+			newList = new ArrayIntList();
 		}
+		for(int i=0; i<newList.length(); i++){
+			newList.add(i);
+		}
+
+		System.out.println("\ncontents: "+newList);
+/*		newList.remove(1);
+		newList.add(5, 7);
+		System.out.println("\nremove i[1] add(7)[5]: "+newList);
+*/
+		System.out.println("using iterator:");
+		
+		ArrayIntListIterator listIter = new ArrayIntListIterator(newList);
+
+		while(listIter.hasNext()){
+			System.out.println(listIter.next()+" removed");
+			listIter.remove();
+		}
+		System.out.println("list contents: "+newList);
 	}
 }

@@ -9,6 +9,9 @@ public class ArrayIntList{
 		this(DEFAULT_CAP);
 	}
 	public ArrayIntList(int capacity){
+		if(capacity<0){
+			throw new IllegalArgumentException("Capacity: "+capacity+" invalid - must be greater than or equal to zero");
+		}
 		elementData = new int[capacity];
 		size = 0;
 	}
@@ -47,7 +50,7 @@ public class ArrayIntList{
 		// must catch bad indices 
 		// the element to be removed is naturally overwritten
 		// by walking the list and reallocating i as i+1
-		for(int i=index; i<size; i++){
+		for(int i=index; i<size-1; i++){
 			elementData[i] = elementData[i+1];
 		}
 		size--;
@@ -55,5 +58,11 @@ public class ArrayIntList{
 	}
 	public int size(){
 		return size;
+	}
+	public int length(){
+		return elementData.length;
+	}
+	public int get(int index){
+		return elementData[index];
 	}
 }
