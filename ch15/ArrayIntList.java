@@ -65,4 +65,10 @@ public class ArrayIntList{
 	public int get(int index){
 		return elementData[index];
 	}
+
+	//ITERATOR
+
+	public ArrayIntListIterator iterator(){
+		return new ArrayIntListIterator(this);
+	}
 }

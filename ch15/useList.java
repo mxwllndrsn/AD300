@@ -20,7 +20,7 @@ public class useList{
 */
 		System.out.println("using iterator:");
 		
-		ArrayIntListIterator listIter = new ArrayIntListIterator(newList);
+		ArrayIntListIterator listIter = newList.iterator();
 
 		while(listIter.hasNext()){
 			System.out.println(listIter.next()+" removed");
