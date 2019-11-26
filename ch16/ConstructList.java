@@ -19,10 +19,21 @@ public class ConstructList{
 			ptr = ptr.next;
 		}
 
-		LinkedIntList LList = new LinkedIntList();
+		IntList LList = new LinkedIntList();
 		for(int i=0; i<100; i++)
-			LList.add(i);
+			LList.add(i*2);
+
 		System.out.println(LList);
-		System.out.println(LList.head().data+" "+LList.tail().data);
+		System.out.println("head and tail: "+LList.head().data+" "+LList.tail().data);
+		System.out.println("get(20): "+LList.get(20));
+		LList.add(20, 500);
+		System.out.println("added(500 @ 20)");
+		LList.remove(20);
+		System.out.println("removed index(20): "+LList);
+		System.out.println("get(20): "+LList.get(20));
+		LList.addSorted(8787);
+		LList.addSorted(-3);
+		LList.addSorted(10);
+		System.out.println("addSorted(various): "+ LList);
 	}
 }

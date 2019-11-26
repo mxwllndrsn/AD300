@@ -127,4 +127,113 @@ Returning the head and tail of the list itself requires similar checks and trave
 		return curr;
 		}
 	}
+```
+
+**Getting** a value at a specified index is an operation similar to indexing queues, in which the structure is indexed by way of (n) iterations. 
+In the context of the Linked List, we traverse pointer assignments every iteration:
+
+```java
+	public int get(int index){
+		ListNode curr = head;
+		// we can index by way of iterating next ptr assignments
+		for(int i=0; i<index; i++)
+			curr = curr.next;
+		return curr.data;
+	}
 ``` 
+
+**Removing** a value from the front of the list (or at any other index) involves updating links:
+
+```java
+
+	// removes and returns head
+	public int remove(){
+		if(head==null)
+			throw new NoSuchElementException();
+		else {
+			// grab value
+			int res = head.data;
+			// update links
+			head = head.next;
+			return res;
+		}
+	}
+
+	// remove at specified index without returning
+	public void remove(int index){
+		if(index==0)
+			// just update first link
+			head=head.next;
+		else {
+			// traverse list to index
+			// point prev node to next node
+			// [prev] -> [skip me] -> [next]
+			ListNode curr = head;
+			for(int i=0; i<index-1; i++)
+				curr = curr.next;
+			curr.next = curr.next.next;
+		}
+	}
+```
+
+#### Sorted Lists
+
+The precondition of the `addSorted()` method is a sorted list - an empty list may be considered sorted and this natural
+order may be preserved so long as the `addSorted()` method is used. We iterate until a comparison is satisfied before updating 
+links with a new ListNode:
+
+```java
+public void addSorted(int value){
+	if(head==null||value<head.data)
+		head = new ListNode(value, head);
+	else {
+		ListNode curr=head;
+		while(curr.next!=null && curr.next.data < value){
+			curr = curr.next;
+		}
+		// insert a new node ahead of current position with next assigned to current next
+		curr.next = new ListNode(value, curr.next);
+	}
+}
+```
+
+
+#### Implementing an Interface
+
+A class can declare that it *implements* a given interface. Linked Lists v ArrayLists share a number of similar methods,
+ with different implementations. Due to this similar behavior we can consider them to share an *interface*, in our case an
+interface *IntList*:
+
+```java
+public interface IntList{
+	public void add(int value);
+	public void add(int index, int value);
+	public int get(int index);
+	public voide remove(int index);
+	public String to String();
+}
+
+//...
+
+public class ArrayIntList implements IntList {...}
+public class LinkedIntList implements IntList {...}
+
+```
+
+Allowing us to utilize an interface instead of referring to individual class methods:
+
+```java
+
+public static void main(String[] args){
+	IntList list1 = new ArrayIntList();
+	IntList list2 = new LinkedIntList();
+	process(list1);
+	process(list2);
+}
+public static void process(IntList list){
+	// list.add() list.remove, etc.
+}
+```
+
+However, the implementation of `ArrayIntList.add()` and `LinkedIntList().add()` may be entirely different. *The shared interface
+ only promises that they will both implement `add()`.*  
