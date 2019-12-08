@@ -10,11 +10,12 @@ public class dirSize{
 			String dir = input.nextLine();
 			File directory = new File(dir);
 			long size = getSize(directory);
-
+			int mb = (int)size/1000024;
+			int gb = mb/1024;
 			System.out.println("\n"+directory.getName()+" size\n============");
-			System.out.println(size+" B");
-			System.out.println(size/1000024+" MB");
-			System.out.println(size/1000024/1024+ "GB");
+			System.out.printf("%10d B%n", size);
+			System.out.printf("%10d MB%n", mb);
+			System.out.printf("%10d GB%n", gb);
 	}
 	public static long getSize(File file){
 		long size=0;
